@@ -12,7 +12,7 @@ class ArticleDisplay extends Component {
             name: '',
             email: '',
             website: '',
-            comment: ''
+            comment: '',
         }
         this.props.actions.get_articleContent(this.props.params.id);
         this.props.actions.get_commentList(this.props.params.id);
