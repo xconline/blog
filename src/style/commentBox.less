@@ -1,0 +1,78 @@
+.publishComment {
+    width: 800px;
+    margin: 0 auto;
+    color: rgba(0, 0, 0, 0.9);
+    border: 1px solid #f6f6f6;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .image {
+        align-items: center;
+        width: 80px;
+        text-align: center;
+        img {
+            width: 60px;
+        }
+    }
+    .publish-box {
+        flex-grow: 1;
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        .input-box {
+            width: 100%;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            input {
+                width: 200px;
+            }
+        }
+        .publich_comment_but {
+            align-self: flex-end;
+            margin: 10px 10px 0 0;
+        }
+    }
+}
+
+.show {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    // pointer-events: none; // 禁止hover事件
+    /* Safari 与 Chrome */
+    opacity: 1;
+    color: #fff;
+    background-image: -webkit-linear-gradient(45deg,#f35626,#feab3a);
+    -webkit-background-clip:padding-box;
+    -webkit-text-fill-color: #fff;
+    -webkit-animation: hue 6s infinite linear;
+}
+.show:hover{
+    background: #feab3a;
+}
+.hide {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    /* Safari 与 Chrome */
+    opacity: 0;
+    -webkit-transition: all 800ms;
+    -o-transition: 800ms;
+    transition: 800ms;
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}

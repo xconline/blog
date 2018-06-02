@@ -1,0 +1,41 @@
+.header {
+    top: 0;
+    height: 60px;
+    width: 100vw;
+    z-index: 2;
+    background: #fff;
+    border-bottom: 1px solid #f1f1f1;
+    position: fixed;
+    transition: 0.5s;
+}
+
+.nav-up{
+    transform: translate3d(0,-60px,0);
+}
+.nav-down{
+    transform: translateZ(0);
+}
+.header-content{
+    display: flex;
+    height: 59px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width:900px;
+    margin: 0 auto;
+    nav{
+        font-size: 20px;
+        line-height: 59px;
+        height: 59px;
+        a{
+            padding: 0 20px;
+            color: #8c8c8c;
+            
+        }
+        .active{
+            color:#1DA57A;
+        }
+        a:hover{
+            color:#1DA57A;
+        }
+    }
+}
