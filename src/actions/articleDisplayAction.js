@@ -11,7 +11,7 @@ let actions = {
     publish_comment: (param) => (dispatch, getState) => {
         param.imageId = getState().articleDisplayReducer.imageId;
         post(`${server}/publish_comment/`, param).then(r => {
-            if (r.res == false || r.res==undefined) {
+            if (r.res === false || r.res===undefined) {
                 dispatch(actions._error({message:'发布评论失败'}));
             } else {
                 dispatch(actions._success({message:'发布评论成功'}));
@@ -44,7 +44,18 @@ let actions = {
             }
         });
     },
+    // 点赞处理
+    like_click:(id) => (dispatch) => {
+        post(`${server}/add_likeCount/`,{aId:id}).then(r=>{
+            if(r.res === false || r.res===undefined){
+                dispatch(actions._error({message: '点赞失败啦！'}))
+            }else{
+                dispatch(actions._update_likeCount(r.like_count));
+            }
+        });
+    },
     resetTip:()=>({type: 'RESET_TIP'}),
+    _update_likeCount: (resp) =>({type: 'UPDATE_LIKECOUNT', payload: resp}),
     _update_clickCount: (resp) =>({type: 'UPDATE_CLICKCOUNT', payload: resp}),
     _get_commentList: (resp) => ({type: 'GET_COMMENTLIST', payload: resp}),
     _get_image: (resp) => ({type: 'GET_IMAGE', image: resp}),

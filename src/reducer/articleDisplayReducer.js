@@ -46,14 +46,21 @@ const articleDisplayReducer = (state = initState, action) => {
         case 'GET_COMMENTLIST':
             newState = Object.assign({}, state, {
                 commentList: action.payload
-            })
+            });
             return newState;
         case 'UPDATE_CLICKCOUNT':
             newState = Object.assign({},state, {
                 article :  Object.assign({},state.article, {
                     click_count: action.payload,
                 })
-            })
+            });
+            return newState;
+        case 'UPDATE_LIKECOUNT':
+            newState = Object.assign({},state, {
+                article :  Object.assign({},state.article, {
+                    like_count: action.payload,
+                })
+            });
             return newState;
         case 'ERROR':
             newState = Object.assign({}, state, {

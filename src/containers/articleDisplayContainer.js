@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
     error: state.articleDisplayReducer.error,
     success: state.articleDisplayReducer.success,
     commentList: state.articleDisplayReducer.commentList,
+    articleList: state.articleReducer.articleList,
 })
 
 const mapDisPatchToProps = (dispatch, ownProps) => ({

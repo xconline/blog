@@ -25,10 +25,10 @@ class ComponentBox extends Component {
     }
 
     publichComment = () => {
-        if (this.state.name == '' || this.state.name == undefined) {
+        if (this.state.name === '' || this.state.name === undefined) {
             message.warn('填下昵称啊，老大！');
             return;
-        } else if (this.state.comment == '' || this.state.comment == undefined) {
+        } else if (this.state.comment === '' || this.state.comment === undefined) {
             message.warn('没写评论提交啥啊，大哥！');
         }
         let param = {

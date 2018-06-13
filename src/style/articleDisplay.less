@@ -1,5 +1,6 @@
+@mainWidth: 800px;
 .article-box {
-    width: 800px;
+    width: @mainWidth;
     margin: 0 auto;
     font-size: 16px;
     background: #fff;
@@ -31,3 +32,78 @@
     }
 }
 
+.articleDesc-box {
+    width: @mainWidth;
+    margin: 15px auto 15px auto;
+    border: 1px solid #f6f6f6;
+    padding: 15px;
+}
+.comment-affix{
+    width:100px;
+    height: 100px;
+    margin-left: -100px;
+    text-align: center;
+    cursor: pointer;
+}
+.heart {
+    background: url(./images/heart.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+    margin-left: -100px;
+    cursor: pointer;
+    background-size: 3000%;
+}
+
+.heart:focus {
+    background-position: right;
+}
+
+.likeCount {
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    margin-left: 69px;
+    font-size: 18px;
+    line-height: 94px;
+    color: #999999;
+}
+.commentCount{
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    // margin-left: 69px;
+    font-size: 18px;
+    color: #999999;
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+@-webkit-keyframes heartBlast {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+@keyframes heartBlast {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+.heartAnimation {
+    display: inline-block;
+    -webkit-animation-name: heartBlast;
+    animation-name: heartBlast;
+    -webkit-animation-duration: .8s;
+    animation-duration: .8s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: steps(28); //共28个背景图片帧
+    animation-timing-function: steps(28);
+    background-position: right;
+}
