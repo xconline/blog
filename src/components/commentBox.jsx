@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {Input, Button, message} from 'antd';
+import React, { Component } from 'react';
+import { message, Input, Button } from 'antd';
 import '../style/commentBox.less';
+const { TextArea } = Input;
 
-const {TextArea} = Input;
 /*
  * api:
  *      get_image()  获得头像的id和url
  *      publish_comment() 发表评论
  *      imageUrl 头像的url
  *      articleId 评论文章的id
- * 
+ *
  */
 class ComponentBox extends Component {
     constructor(props) {
@@ -19,12 +19,12 @@ class ComponentBox extends Component {
             name: '',
             email: '',
             website: '',
-            comment: ''
-        }
+            comment: '',
+        };
         this.props.get_image();
     }
 
-    publichComment = () => {
+    publichComment() {
         if (this.state.name === '' || this.state.name === undefined) {
             message.warn('填下昵称啊，老大！');
             return;
@@ -34,39 +34,84 @@ class ComponentBox extends Component {
         let param = {
             name: this.state.name,
             email: this.state.email,
-            website: this.state.website.indexOf('http')===-1?`http://${this.state.website}`:this.state.website,
+            website:
+                                this.state.website.indexOf('http') === -1
+                                    ? `http://${this.state.website}`
+                                    : this.state.website,
             comment: this.state.comment,
-            articleId: this.props.articleId
-        }
+            articleId: this.props.articleId,
+        };
         this.props.publish_comment(param);
         this.setState({
             name: '',
             email: '',
             website: '',
-            comment: ''
-        })
+            comment: '',
+        });
     }
     render() {
-        const {name, email, website, comment} = this.state;
+        const { name, email, website, comment } = this.state;
 
         return (
             <div className="publishComment">
-                <div className='image'>
-                    <img src={this.props.imageUrl} alt="随机给的头像"/>
+                <div className="image">
+                    <img src={this.props.imageUrl} alt="随机给的头像" />
                 </div>
                 <div className="publish-box">
                     <div className="input-box">
-                        <Input placeholder='昵称（必填）' onChange={(e) => this.setState({name: e.target.value})} value={name}></Input>
-                        <Input placeholder='邮箱' onChange={(e) => this.setState({email: e.target.value})} value={email}></Input>
-                        <Input type='url' onChange={(e) => this.setState({website: e.target.value})} placeholder='个人网址' value={website}></Input>
+                        <Input
+                            placeholder="昵称（必填）"
+                            onChange={e =>
+                                this.setState({
+                                    name: e.target.value,
+                                })
+                            }
+                            value={name}
+                        />
+                        <Input
+                            placeholder="邮箱"
+                            onChange={e =>
+                                this.setState({
+                                    email: e.target.value,
+                                })
+                            }
+                            value={email}
+                        />
+                        <Input
+                            type="url"
+                            onChange={e =>
+                                this.setState({
+                                    website: e.target.value,
+                                })
+                            }
+                            placeholder="个人网址"
+                            value={website}
+                        />
                     </div>
                     <TextArea
-                        onFocus={() => this.setState({publishCommentClass: 'show'})}
-                        onBlur={() => this.setState({publishCommentClass: 'hide'})}
+                        onFocus={() =>
+                            this.setState({
+                                publishCommentClass: 'show',
+                            })
+                        }
+                        onBlur={() =>
+                            this.setState({
+                                publishCommentClass: 'hide',
+                            })
+                        }
                         rows={4}
-                        onChange={(e) => this.setState({comment: e.target.value})}
-                        value={comment}></TextArea>
-                    <Button className={`publich_comment_but ${this.state.publishCommentClass}`} onClick={this.publichComment}>提交评论</Button>
+                        onChange={e =>
+                            this.setState({ comment: e.target.value })
+                        }
+                        value={comment}
+                    />
+                    <Button
+                        className={`publich_comment_but ${
+                            this.state.publishCommentClass
+                        }`}
+                        onClick={this.publichComment}>
+                                                提交评论
+                    </Button>
                 </div>
             </div>
         );

@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "commonjs": true,
+        "amd": true,
+        "es6": true,
+        "mocha": true
+    },
+    "extends": "eslint-config-alloy/react",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "globalReturn": true,
+            "impliedStrict": true,
+            "jsx": true
+        }
+    },
+
+    "rules": {
+        "no-console": "off",
+        "no-undefined": "off"
+    }
+}
